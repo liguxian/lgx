@@ -1,0 +1,2 @@
+com.cyd.cache.config.RedisAutoConfiguration
+com.cyd.cache.config.RedissonAutoConfiguration

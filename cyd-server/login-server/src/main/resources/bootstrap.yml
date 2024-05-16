@@ -1,0 +1,28 @@
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: cyd-login
+  cloud:
+    nacos:
+      discovery:
+        namespace: cyd-${spring.profiles.active}
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: cyd-${spring.profiles.active}
+        refresh-enabled: true  #设置自动刷新
+        prefix: ${spring.application.name}
+        group: ${spring.profiles.active}
+        bootstrap:
+          enable: true
+server:
+  port: 8080
+
+
+
+

@@ -23,6 +23,11 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
+    /**
+     * 登录
+     * @param loginVo
+     * @return
+     */
     public LoginDto toLogin(LoginVo loginVo) {
         if (NumericEnum.ZERO.getCode().equals(loginVo.getType())) {
             return register(loginVo);
@@ -32,6 +37,11 @@ public class UserService {
         return null;
     }
 
+    /**
+     * 注册
+     * @param vo
+     * @return
+     */
     public LoginDto register(LoginVo vo) {
         //1.把UserName写入UserName集合
         RedisHelper.setSet("register_userName", vo.getUserName());
